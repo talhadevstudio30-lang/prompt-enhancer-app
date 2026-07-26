@@ -19,7 +19,7 @@ function Header() {
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
-                            `rounded-full px-3 py-1 font-medium transition ${isActive
+                            `rounded-full px-3 py-1 font-medium transition duration-150 ${isActive
                                 ? "bg-white text-gray-900 shadow-sm"
                                 : "text-gray-500 hover:text-gray-700"
                             }`
@@ -30,9 +30,9 @@ function Header() {
                     <NavLink
                         to="/enhance"
                         className={({ isActive }) =>
-                            `rounded-full px-3 py-1 font-medium transition ${isActive
-                                ? "bg-white text-gray-900 shadow-sm"
-                                : "text-gray-500 hover:text-gray-700"
+                            `rounded-full px-3 py-1 font-medium transition duration-150 ${isActive
+                                ? "bg-[#00786f] text-white shadow-sm"
+                                : "text-gray-500 hover:text-[#00786f]"
                             }`
                         }
                     >

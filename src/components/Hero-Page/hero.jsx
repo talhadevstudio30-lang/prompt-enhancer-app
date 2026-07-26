@@ -109,7 +109,7 @@ export default function Hero({ onOpenEnhancer } = {}) {
   return (
     <div className="min-h-screen bg-white text-gray-900">
 
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-11">
         {/* Hero */}
         <section className="pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20">
           <div className="mx-auto max-w-3xl lg:mx-0 lg:max-w-none">
@@ -153,7 +153,7 @@ export default function Hero({ onOpenEnhancer } = {}) {
 
             <hr className="mt-9 border-gray-200 lg:mt-12" />
 
-            <div className="mt-7 grid grid-cols-3 gap-4 sm:gap-6 lg:mt-10 lg:gap-8">
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 text-center gap-4 sm:gap-6 lg:mt-10 lg:gap-8 flex-wrap">
               {STATS.map((stat) => (
                 <div key={stat.label}>
                   <div className="text-xl font-bold text-gray-900 sm:text-2xl lg:text-[25px]">

@@ -181,10 +181,10 @@ export default function Prompt_Enhancer() {
                   key={example.label}
                   type="button"
                   onClick={() => handleTryExample(example.value)}
-                  className="group relative rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-600 transition-all duration-300 ease-out hover:border-teal-300 hover:bg-teal-100 hover:text-teal-700 hover:shadow-sm hover:shadow-teal-900/5 hover:-translate-y-0.5 active:scale-95 active:translate-y-0 lg:px-4 lg:py-1.5 lg:text-sm"
+                  className="group relative rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-600 transition-all duration-150 ease-out hover:border-teal-300 hover:bg-teal-100 hover:text-teal-700 hover:shadow-sm hover:shadow-teal-900/5 hover:-translate-y-0.5 active:scale-95 active:translate-y-0 lg:px-4 lg:py-1.5 lg:text-sm"
                 >
                   <span className="relative z-10">{example.label}</span>
-                  <span className="absolute inset-0 rounded-full bg-linear-to-r from-teal-50 to-teal-100/50 opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100" />
+                  <span className="absolute inset-0 rounded-full bg-linear-to-r from-teal-50 to-teal-100/50 opacity-0 transition-opacity duration-150 ease-out group-hover:opacity-100" />
                 </button>
               ))}
             </div>
@@ -234,7 +234,7 @@ export default function Prompt_Enhancer() {
                   <p className="text-sm font-semibold text-gray-900 lg:text-base">
                     Couldn't enhance that prompt
                   </p>
-                  <p className="text-sm text-gray-400 max-w-[260px] lg:max-w-xs lg:text-base">
+                  <p className="text-sm text-gray-400 max-w-65 lg:max-w-xs lg:text-base">
                     {error}
                   </p>
                   <button
@@ -246,23 +246,49 @@ export default function Prompt_Enhancer() {
                   </button>
                 </div>
               ) : enhanced ? (
-                <pre className="h-full whitespace-pre-wrap break-words p-4 font-sans text-[15px] leading-relaxed text-gray-800 lg:p-6 lg:text-base">
+                <pre className="h-full whitespace-pre-wrap wrap-break-word p-4 font-sans text-[15px] leading-relaxed text-gray-800 lg:p-6 lg:text-base">
                   {enhanced}
                 </pre>
               ) : (
-                <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
-                  <div className="flex h-9 w-9 lg:h-10 lg:w-10 items-center justify-center rounded-lg bg-teal-50">
-                    <Sparkles
-                      className="h-4 w-4 lg:h-5 lg:w-5 text-teal-700"
-                      strokeWidth={2.25}
-                    />
+                <div className="flex h-full flex-col items-center justify-center gap-4 px-6 text-center">
+                  <div className="relative">
+                    <div className="flex h-12 w-12 lg:h-14 lg:w-14 items-center justify-center rounded-xl bg-linear-to-br from-teal-50 to-teal-100 shadow-sm shadow-teal-900/5 transition-all duration-300 ease-out group-hover:shadow-md group-hover:shadow-teal-900/10 group-hover:scale-105">
+                      <Sparkles
+                        className="h-5 w-5 lg:h-6 lg:w-6 text-teal-600 transition-transform duration-500 ease-out group-hover:rotate-12"
+                        strokeWidth={1.75}
+                      />
+                    </div>
+                    <div className="absolute -top-1 -right-1 flex h-3.5 w-3.5 lg:h-4 lg:w-4 items-center justify-center rounded-full bg-teal-700 shadow-sm shadow-teal-900/20">
+                      <span className="text-[8px] lg:text-[9px] text-white">✦</span>
+                    </div>
                   </div>
-                  <p className="text-sm font-semibold text-gray-900 lg:text-base">
-                    Your enhanced prompt will appear here
-                  </p>
-                  <p className="text-sm text-gray-400 max-w-[220px] lg:max-w-xs lg:text-base">
-                    Write a prompt on the left, then hit Enhance Prompt.
-                  </p>
+
+                  <div className="space-y-1.5">
+                    <p className="text-sm font-semibold text-gray-900 lg:text-base">
+                      Your enhanced prompt will appear here
+                    </p>
+                    <p className="text-sm text-gray-400 max-w-60 lg:max-w-xs lg:text-base leading-relaxed">
+                      Write a prompt on the left, then hit{" "}
+                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md mt-1 bg-teal-50 text-teal-700 border-teal-300 border font-medium text-xs lg:text-sm">
+                        <Sparkles className="h-3 w-3" strokeWidth={2} />
+                        Enhance Prompt
+                      </span>
+                    </p>
+                  </div>
+
+                  <div className="mt-2 flex flex-col items-center gap-2">
+                    <div className="flex items-center gap-1.5 text-xs text-gray-400">
+                      <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-mono text-[11px]">
+                        Ctrl + Enter
+                      </span>
+                      <span>shortcut available</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-[11px] text-gray-300">
+                      <div className="h-px w-6 bg-gray-200" />
+                      <span>structured output</span>
+                      <div className="h-px w-6 bg-gray-200" />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
