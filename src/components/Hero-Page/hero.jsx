@@ -109,7 +109,7 @@ export default function Hero({ onOpenEnhancer } = {}) {
   return (
     <div className="min-h-screen bg-white text-gray-900">
 
-      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-11">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-11 xl:px-1">
         {/* Hero */}
         <section className="pb-14 pt-12 sm:pb-16 sm:pt-16 lg:pb-20 lg:pt-20">
           <div className="mx-auto max-w-3xl lg:mx-0 lg:max-w-none">
