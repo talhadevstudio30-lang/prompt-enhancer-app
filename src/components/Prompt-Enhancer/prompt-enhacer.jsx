@@ -217,11 +217,22 @@ export default function Prompt_Enhancer() {
 
             <div className="h-64 sm:h-80 lg:h-96 overflow-y-auto rounded-lg border border-gray-200 bg-gray-50/60">
               {isEnhancing ? (
-                <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
-                  <div className="h-9 w-9 lg:h-10 lg:w-10 animate-spin rounded-full border-2 border-teal-700/25 border-t-teal-700" />
-                  <p className="text-sm text-gray-400 lg:text-base">
-                    Structuring your prompt…
-                  </p>
+                <div
+                  className="h-full space-y-6 p-4 lg:p-6"
+                  role="status"
+                  aria-label="Enhancing prompt"
+                >
+                  <span className="sr-only">Structuring your prompt…</span>
+                  {[0, 1, 2, 3].map((section) => (
+                    <div key={section} className="space-y-3">
+                      <div className="h-4 w-1/4 animate-pulse rounded bg-gray-200 shadow-sm" />
+                      <div className="h-3 w-full animate-pulse rounded bg-gray-200 shadow-sm" />
+                      <div className="h-3 w-11/12 animate-pulse rounded bg-gray-200 shadow-sm" />
+                      {section === 0 && (
+                        <div className="h-3 w-3/4 animate-pulse rounded bg-gray-200 shadow-sm" />
+                      )}
+                    </div>
+                  ))}
                 </div>
               ) : error ? (
                 <div className="flex h-full flex-col items-center justify-center gap-3 px-6 text-center">
@@ -257,9 +268,6 @@ export default function Prompt_Enhancer() {
                         className="h-5 w-5 lg:h-6 lg:w-6 text-teal-600 transition-transform duration-500 ease-out group-hover:rotate-12"
                         strokeWidth={1.75}
                       />
-                    </div>
-                    <div className="absolute -top-1 -right-1 flex h-3.5 w-3.5 lg:h-4 lg:w-4 items-center justify-center rounded-full bg-teal-700 shadow-sm shadow-teal-900/20">
-                      <span className="text-[8px] lg:text-[9px] text-white">✦</span>
                     </div>
                   </div>
 

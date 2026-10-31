@@ -1,11 +1,11 @@
 import { useState, useRef } from "react";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, Zap, BrainCircuit, LockKeyhole } from "lucide-react";
 import { NavLink } from 'react-router-dom'
 
 const STATS = [
-  { value: "⚡ AI Powered", label: "Advanced Prompt Enhancement" },
-  { value: "🧠 Smart Optimization", label: "Context-aware rewriting" },
-  { value: "🔒 100% Private", label: "No prompts stored on our servers" },
+  { title: "AI-powered", description: "Advanced prompt enhancement", Icon: Zap },
+  { title: "Context-aware", description: "Smart prompt optimization", Icon: BrainCircuit },
+  { title: "No local storage", description: "Prompts stay in page state, not browser storage", Icon: LockKeyhole },
 ];
 
 const STEPS = [
@@ -153,14 +153,22 @@ export default function Hero({ onOpenEnhancer } = {}) {
 
             <hr className="mt-9 border-gray-200 lg:mt-12" />
 
-            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 text-center gap-4 sm:gap-6 lg:mt-10 lg:gap-8 flex-wrap">
-              {STATS.map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-xl font-bold text-gray-900 sm:text-2xl lg:text-[25px]">
-                    {stat.value}
+            <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 lg:mt-10 lg:gap-5">
+              {STATS.map(({ title, description, Icon }) => (
+                <div
+                  key={title}
+                  className="flex items-start gap-3 rounded-lg border border-gray-200 bg-white p-4 text-left"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#E9F3F2] text-teal-700">
+                    <Icon className="h-4 w-4" strokeWidth={2} />
                   </div>
-                  <div className="mt-1 text-xs leading-snug text-gray-500 sm:text-sm lg:text-[15px]">
-                    {stat.label}
+                  <div>
+                    <h2 className="text-sm font-semibold text-gray-900 lg:text-base">
+                      {title}
+                    </h2>
+                    <p className="mt-1 text-xs leading-snug text-gray-500 sm:text-sm">
+                      {description}
+                    </p>
                   </div>
                 </div>
               ))}
